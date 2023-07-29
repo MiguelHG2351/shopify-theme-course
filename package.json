@@ -1,5 +1,15 @@
 {
   "devDependencies": {
     "tailwindcss": "^3.3.3"
-  }
+  },
+  "name": "elizabeth",
+  "description": "[![Generic badge](https://img.shields.io/badge/course%20available%3F-yes-green.svg)](https://shields.io/)",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "styles": " tailwindcss -i ./css/tailwind.css -o ./assets/application.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
