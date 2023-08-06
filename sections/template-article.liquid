@@ -1,7 +1,10 @@
 {% for block in section.blocks %}
   {% case block.type %}
       {% when 'article_title' %}
+        <div>  
+          <p>{{ article.blog | t }}</p>
           <h1>{{ article.title }}</h1>
+        </div>
       {% when 'article_author' %}
           {% if section.settings.enable_author %}
               <small>{{ article.author }}</small>

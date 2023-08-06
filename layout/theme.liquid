@@ -17,5 +17,17 @@
     <main role="main">
       {{ content_for_layout }}
     </main>
+    <div id="overlay" class="fixed hidden z-10 inset-0 bg-black/25"></div>
+    <script>
+      const $btnSidebar = document.querySelector('#btn-sidebar')
+      const $overlay = document.querySelector('#overlay')
+      function toggleMenu() {
+        document.querySelector('#sidebar').classList.toggle('translate-x-0')
+        $overlay.classList.toggle('hidden')
+      }
+      
+      $btnSidebar.addEventListener('click', toggleMenu)
+      $overlay.addEventListener('click', toggleMenu)
+    </script>
   </body>
 </html>
