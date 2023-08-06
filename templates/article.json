@@ -20,10 +20,10 @@
         }
       },
       "block_order": [
-        "thumbnail",
         "title",
-        "published_date",
         "author",
+        "published_date",
+        "thumbnail",
         "content"
       ]
     }

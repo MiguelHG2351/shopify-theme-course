@@ -1,31 +1,43 @@
-{% for block in section.blocks %}
-  {% case block.type %}
-      {% when 'article_title' %}
-        <div>  
-          <p>{{ article.blog | t }}</p>
-          <h1>{{ article.title }}</h1>
-        </div>
-      {% when 'article_author' %}
-          {% if section.settings.enable_author %}
-              <small>{{ article.author }}</small>
-          {% endif %}
-      {% when 'article_published_date' %}
-          {% if section.settings.enable_published_date %}
-              <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y-%m-%d' }}</time>
-          {% endif %}
-      {% when 'featured_image' %}
-        <div class="container-image">
-          <img 
-            className="w-full h-auto"
-            src="{{ article.image | image_url: width: 480, height: 480 }}"
-            alt="{{ article.image.alt }}" width="480" height="480" loading="eager"
-          />
-        </div>
-      {% when 'article_content' %}
-          <div class="">{{ article.content }}</div> 
-      {% else %}
-  {% endcase %}
-{% endfor %}
+<div class="mt-6 px-8">
+  {% for block in section.blocks %}
+    {% case block.type %}
+        {% when 'article_title' %}
+          <div>
+            <span class="font-bold block text-center">blog</span>
+            <h1 class="text-center text-3xl font-bold">{{ article.title }}</h1>
+          </div>
+        {% when 'article_author' %}
+            {% if section.settings.enable_author %}
+                <small class="block text-center mt-4">{{ article.author }}</small>
+            {% endif %}
+        {% when 'article_published_date' %}
+            {% if section.settings.enable_published_date %}
+                <time class="block text-center my-2" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y-%m-%d' }}</time>
+            {% endif %}
+        {% when 'featured_image' %}
+          <div class="container-image flex justify-center">
+            <img 
+              className="w-full h-auto max-w-full"
+              src="{{ article.image | image_url: width: 480, height: 480 }}"
+              alt="{{ article.image.alt }}" width="480" height="480" loading="eager"
+            />
+          </div>
+        {% when 'article_content' %}
+            <div class="space-y-6 mt-4">{{ article.content }}</div> 
+        {% else %}
+    {% endcase %}
+  {% endfor %}
+  {% comment %} Previous {% endcomment %}
+  <a href="{{ article.previous_article.url }}" class="block text-center mt-4">
+    <span class="text-sm font-bold">Previous</span>
+    <span class="text-sm">{{ article.previous_article.title }}</span>
+  </a>
+  {% comment %} Next {% endcomment %}
+  <a href="{{ article.next_article.url }}" class="block text-center mt-4">
+    <span class="text-sm font-bold">Next</span>
+    <span class="text-sm">{{ article.next_article.title }}</span>
+  </a>
+</div>
 
 {% schema %}
 {
