@@ -884,6 +884,10 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:flex-1 {
     flex: 1 1 0%;
   }
