@@ -33,12 +33,12 @@
     {% endcase %}
   {% endfor %}
 
-  <a href="{{ article.previous_article.url }}" class="block text-center mt-4">
+  <a href="{{ blog.previous_article.url }}" class="block text-center mt-4">
     <span class="text-sm font-bold">Previous</span>
     <span class="text-sm">{{ article.previous_article.title }}</span>
   </a>
 
-  <a href="{{ article.next_article.url }}" class="block text-center mt-4">
+  <a href="{{ blog.next_article.url }}" class="block text-center mt-4">
     <span class="text-sm font-bold">Next</span>
     <span class="text-sm">{{ article.next_article.title }}</span>
   </a>
