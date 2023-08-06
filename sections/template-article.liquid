@@ -3,7 +3,7 @@
     {% case block.type %}
         {% when 'article_title' %}
           <div>
-            <span class="font-bold block text-center">blog</span>
+            <span class="font-bold block text-center">{{ blog.title }} xd</span>
             <h1 class="text-center text-3xl font-bold">{{ article.title }}</h1>
           </div>
         {% when 'article_author' %}
@@ -56,6 +56,33 @@
     </section>
   {% endif %}
 </div>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ article.title | json }},
+    "articleBody": {{ article.content | strip_html | json }},
+    {% if article.excerpt != blank %}
+        "description": {{ article.excerpt | strip_html | json }},
+    {% endif %}
+    {% if article.image %}
+        "image": [
+            {{ article.image | image_url: "medium" | prepend: 'https:' | json }} 
+        ],
+    {% endif %}
+    "datePublished": {{ article.published_at | date: format: "default" | json }},
+    "dateCreated": {{ article.created_at | date: format: "default" | json }},
+    "author": {
+        "@type": "Person",
+        "name": {{ article.author | json }}
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": {{ shop.name | json }}
+    }
+}
+</script>
 
 {% schema %}
 {

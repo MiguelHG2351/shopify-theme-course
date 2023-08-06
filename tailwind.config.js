@@ -8,7 +8,11 @@ module.exports = {
     './snippets/*.liquid',
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridAutoColumns: {
+        '1fr': 'repeat(auto-fit, minmax(200px, 1fr))',
+      }
+    },
   },
   plugins: [],
 }
