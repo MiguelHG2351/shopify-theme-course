@@ -36,7 +36,20 @@
   {% if blog.comments_enabled? %}
     <section id="comments py-8">
       {% if article.comments_count > 0 %}
-
+        <div class="flex flex-col">
+          <h2>See what people are saying</h2>
+          {% paginate article.comments by 5 %}
+            {% for comment in article.comments %}
+              <div class="flex-1 border my-4 px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+                <span class="comment-author">{{ comment.author }}</span> <span class="text-xs text-gray-400">{{ comment.created_at | date: format: 'default' }}</span>
+                <p class="text-sm">{{ comment.content }}</p>
+              </div>
+            {% endfor %}
+            {% if paginate.pages > 1 %}
+              {{ paginate | default_pagination }}
+            {% endif %}
+          {% endpaginate %}
+        </div>
       {% else %}
         <span class="text-sm font-bold">There are no commets in this article</span>
       {% endif %}
