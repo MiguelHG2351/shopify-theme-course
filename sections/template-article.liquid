@@ -13,8 +13,13 @@
         {% when 'article_published_date' %}
             {% if section.settings.enable_published_date %}
                 <time class="block text-center my-2" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y-%m-%d' }}</time>
+                <div class="flex justify-center">
+                  <p class="inline-block break-words text-center text-xs md:text-base max-w-[52ch]">{{ article.metafields.custom.summary.value }}</p>
+                </div>
             {% endif %}
         {% when 'featured_image' %}
+          <div>
+          </div>
           <div class="container-image flex justify-center">
             <img 
               className="w-full h-auto max-w-full"
@@ -27,12 +32,12 @@
         {% else %}
     {% endcase %}
   {% endfor %}
-  {% comment %} Previous {% endcomment %}
+
   <a href="{{ article.previous_article.url }}" class="block text-center mt-4">
     <span class="text-sm font-bold">Previous</span>
     <span class="text-sm">{{ article.previous_article.title }}</span>
   </a>
-  {% comment %} Next {% endcomment %}
+
   <a href="{{ article.next_article.url }}" class="block text-center mt-4">
     <span class="text-sm font-bold">Next</span>
     <span class="text-sm">{{ article.next_article.title }}</span>
