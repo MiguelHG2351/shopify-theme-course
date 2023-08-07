@@ -1,6 +1,24 @@
 {
-  "current": "Default",
+  "current": {
+    "blocks": {
+      "bb977e68-da49-4baf-9705-ac98c3d90aac": {
+        "type": "shopify:\/\/apps\/boost-ai-search-discovery\/blocks\/boost-sd\/7fc998ae-a150-4367-bab8-505d8a4503f7",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
+  },
   "presets": {
-    "Default": { }
+    "Default": {
+      "blocks": {
+        "bb977e68-da49-4baf-9705-ac98c3d90aac": {
+          "type": "shopify:\/\/apps\/boost-ai-search-discovery\/blocks\/boost-sd\/7fc998ae-a150-4367-bab8-505d8a4503f7",
+          "disabled": false,
+          "settings": {
+          }
+        }
+      }
+    }
   }
 }
