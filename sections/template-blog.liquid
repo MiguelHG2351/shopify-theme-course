@@ -1,7 +1,7 @@
 {% paginate blog.articles by 5 %}
 
 <h1>{{ blog.title }} xd</h1>
-<div class="grid gap-x-4 grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))]">
+<div class="grid gap-x-4 grid-cols-[repeat(auto-fit,_minmax(280px,_1fr))]">
   {% for article in blog.articles %}
     <div>
       <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>

@@ -2,7 +2,7 @@
   "sections": {
     "template": {
       "type": "template-collection",
-      "disabled": false,
+      "disabled": true,
       "settings": {
       }
     },
