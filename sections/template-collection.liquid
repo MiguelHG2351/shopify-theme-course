@@ -1,0 +1,20 @@
+{% paginate collection.products by 6 %}
+  <h1>{{ collection.title }}</h1>
+  <div class="grid gap-x-4 grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))]">
+    {% for product in collection.products %}
+      <div>
+        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        {{ product.price | money }}
+        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+        <a class="block" href="{{ product.url | within: collection }}">
+          <img class="w-full h-auto inline-block align-middle" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+        </a>
+      </div>
+    {% else %}
+      <p>no matches</p>
+    {% endfor %}
+  </div>
+  {% if paginate.pages > 1 %}
+    {{ paginate | default_pagination }}
+  {% endif %}
+{% endpaginate %}
