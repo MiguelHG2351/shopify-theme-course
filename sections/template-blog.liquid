@@ -1,11 +1,53 @@
+<div>
+  <div class="relative h-[400px] bg-sky-400 flex gap-y-2 items-center justify-center flex-col">
+    <h1 class="font-bold text-2xl">{{ blog.title }}</h1>
+    <div class="flex text-slate-600 font-bold items-center gap-x-2">
+      <span>
+        Home
+      </span>
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+        </svg>
+      </span>
+      <span>Blog</span>
+    </div>
+    <img 
+      src="https://grostore-wp.themetags.com/wp-content/themes/grostore/assets/images/blog/banner_bottom.png"
+      alt="header image"
+      class="w-full h-auto absolute left-0 right-0 bottom-0"
+    >
+  </div>
+</div>
+<div class="p-6 mt-6">
 {% paginate blog.articles by 5 %}
-
-<h1>{{ blog.title }} xd</h1>
 <div class="grid gap-x-4 grid-cols-[repeat(auto-fit,_minmax(280px,_1fr))]">
   {% for article in blog.articles %}
     <div>
-      <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-      {{ article.author }} @ {{ article.created_at }}
+      <div class="image">
+        <img class="max-w-full rounded-lg" src="{{ article.image | image_url: width: 480, height: 480 }}" alt="photo of blog" />
+      </div>
+      <div class="info">
+        <div class="flex gap-x-1 text-indigo-400 capitalize">
+          {% render 'icon-tag' %}
+          {% comment %} Add links {% endcomment %}
+          {% for tag in article.tags %}
+            <span class="font-bold text-sm">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <div class="flex items-center justify-between font-medium">
+          <span class="flex items-center">
+            {% render 'icon-clock' %}
+            {{ article.published_at | date: '%B %d, %Y' }}
+          </span>
+          <span class="flex items-center">
+            {% render 'icon-comments' %}
+            {{ article.comments_count }}
+          </span>
+        </div>
+        <h2 class="font-bold text-xl"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+        {{ article.author }} @ {{ article.created_at }}
+      </div>
     </div>
   {% endfor %}
 </div>
@@ -15,3 +57,4 @@
 {% endif %}
 
 {% endpaginate %}
+</div>
