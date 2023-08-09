@@ -13,6 +13,10 @@ module.exports = {
         '1fr': 'repeat(auto-fit, minmax(200px, 1fr))',
       }
     },
+    fontFamily: {
+      'sans': ['Inter', 'sans-serif'],
+      'cursive': ['Borel', 'cursive'],
+    }
   },
   plugins: [],
 }
