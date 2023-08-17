@@ -1,10 +1,32 @@
 {
   "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "title_page": "Aberration store",
+          "main_menu": "main-menu"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
     "blocks": {
       "bb977e68-da49-4baf-9705-ac98c3d90aac": {
         "type": "shopify:\/\/apps\/boost-ai-search-discovery\/blocks\/boost-sd\/7fc998ae-a150-4367-bab8-505d8a4503f7",
         "disabled": false,
         "settings": {
+        }
+      },
+      "12107416968155278870": {
+        "type": "shopify:\/\/apps\/paywhirl\/blocks\/paywhirl-customer-portal\/41e95d60-82cf-46e8-84de-618d7e4c37b7",
+        "disabled": false,
+        "settings": {
+          "show_subscriptions_link": false,
+          "show_customer_login_note": false,
+          "show_address_change_note": false,
+          "container_selector": "main"
         }
       }
     }
