@@ -41,8 +41,8 @@
           "settings": {
             "font_scale": 100,
             "theme": "default",
-            "selling_plans_first": false,
-            "theme_color": "#334FB4",
+            "selling_plans_first": true,
+            "theme_color": "#334fb4",
             "product": "{{product}}"
           }
         }
