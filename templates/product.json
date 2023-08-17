@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "template": {
+      "type": "template-product",
+      "blocks": {
+        "title": {
+          "type": "product_name"
+        }
+      },
+      "block_order": ["title"]
+    }
+  },
+  "order": ["template"]
+}

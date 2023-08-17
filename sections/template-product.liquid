@@ -27,3 +27,35 @@
   <button type="submit" name="add" id="AddToCart">Add to cart</button>
 </form>
 <div>{{ product.description }}</div>
+
+{% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'product_name' %}
+      {% if block.settings.title_heading != blank %}
+        <h1>{{ block.settings.title_heading }}</h1>
+      {% endif %}
+      <div class="slide" {{ block.shopify_attributes }}>
+        {{ block.settings.image | image_url: width: 2048 | image_tag }}
+      </div>
+  {% endcase %}
+{% endfor %}
+
+{% schema %}
+{
+  "name": "Product section",
+  "blocks": [
+    {
+      "type": "product_name",
+      "name": "Product name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title_heading",
+          "label": "This is the title",
+          "info": "This is the title of product page"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
