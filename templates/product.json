@@ -29,15 +29,27 @@
       "blocks": {
         "857ba055-673a-483c-9dfa-95eb981fe466": {
           "type": "shopify:\/\/apps\/boost-ai-search-discovery\/blocks\/recommendation\/7fc998ae-a150-4367-bab8-505d8a4503f7",
+          "disabled": true,
           "settings": {
             "widgetId": "",
             "additional_classes": "",
             "custom_css": ""
           }
+        },
+        "d7307a75-33c2-4c1e-ba56-170a0327a98c": {
+          "type": "shopify:\/\/apps\/paywhirl\/blocks\/paywhirl-plan-selector\/41e95d60-82cf-46e8-84de-618d7e4c37b7",
+          "settings": {
+            "font_scale": 100,
+            "theme": "default",
+            "selling_plans_first": false,
+            "theme_color": "#334FB4",
+            "product": "{{product}}"
+          }
         }
       },
       "block_order": [
-        "857ba055-673a-483c-9dfa-95eb981fe466"
+        "857ba055-673a-483c-9dfa-95eb981fe466",
+        "d7307a75-33c2-4c1e-ba56-170a0327a98c"
       ],
       "settings": {
       }
